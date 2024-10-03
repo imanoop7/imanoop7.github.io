@@ -310,3 +310,25 @@ h2 {
 .cta-button:hover {
     background-color: #3a7bc8;
 }
+
+.latest-item {
+    background-color: var(--card-background);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.latest-item h3 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.latest-item p {
+    margin-bottom: 15px;
+}
+
+.latest-item .cta-button {
+    display: inline-block;
+    margin-left: 0;
+}

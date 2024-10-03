@@ -39,7 +39,7 @@ const experience = [
 const mediumArticles = [
     {
         title: "Running Ollama on Google Colab (Free Tier): A Step-by-Step Guide",
-        description: "Ollama empowers you to leverage powerful large language models (LLMs) like Llama2,Llama3,Phi3 etc. without needing a powerful local machine. Google Colab’s free tier provides a cloud environment perfectly suited for running these resource-intensive models. This guide meticulously details setting up and running Ollama on the free version of Google Colab, allowing you to explore the capabilities of LLMs without significant upfront costs.",
+        description: "An Beginner Introduction, how to install Ollama on Google Colab.",
         link: "https://medium.com/towards-artificial-intelligence/running-ollama-on-google-colab-free-tier-a-step-by-step-guide-9ef74b1f8f7a",
         image: "https://via.placeholder.com/300x200.png?text=ollama"
     },
@@ -198,4 +198,35 @@ document.addEventListener('click', function(e) {
     if (e.target && e.target.classList.contains('cta-button')) {
         console.log('Button clicked:', e.target.href);
     }
+});
+
+const latestItem = {
+    title: "Latest: Fine-Tuning Phi-3 with Unsloth",
+    description: "Just published: A comprehensive guide on fine-tuning the Phi-3 model using Unsloth for superior performance on custom datasets.",
+    link: "https://medium.com/towards-artificial-intelligence/fine-tuning-phi-3-with-unsloth-for-superior-performance-on-custom-data-2c14b3c1e90b",
+    type: "Article"
+};
+
+function createLatestItem() {
+    const container = document.getElementById('latest-content');
+    container.innerHTML = ''; // Clear existing content
+    const itemDiv = document.createElement('div');
+    itemDiv.className = 'latest-item';
+    itemDiv.innerHTML = `
+        <h3>${latestItem.title}</h3>
+        <p>${latestItem.description}</p>
+        <a href="${latestItem.link}" target="_blank" class="cta-button">Read More</a>
+    `;
+    container.appendChild(itemDiv);
+}
+
+// Update the DOMContentLoaded event listener
+document.addEventListener('DOMContentLoaded', function() {
+    typeWriter("Data Scientist | AI Engineer", 0, function() {
+        // typeWriter function callback
+    });
+    createProjectCards();
+    createExperienceSection();
+    createMediumArticleCards();
+    createLatestItem();
 });
