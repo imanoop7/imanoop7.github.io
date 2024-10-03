@@ -91,6 +91,12 @@ function createProjectCards() {
 // Function to create experience section
 function createExperienceSection() {
     const experienceSection = document.getElementById('experience');
+    // Clear existing content to prevent duplication
+    experienceSection.innerHTML = '<h2>Professional Experience</h2>';
+    
+    const experienceContainer = document.createElement('div');
+    experienceContainer.className = 'experience-container';
+
     experience.forEach(job => {
         const jobDiv = document.createElement('div');
         jobDiv.className = 'job';
@@ -101,8 +107,10 @@ function createExperienceSection() {
                 ${job.achievements.map(achievement => `<li>${achievement}</li>`).join('')}
             </ul>
         `;
-        experienceSection.appendChild(jobDiv);
+        experienceContainer.appendChild(jobDiv);
     });
+
+    experienceSection.appendChild(experienceContainer);
 }
 
 // Function to create Medium article cards
@@ -176,6 +184,8 @@ document.addEventListener('DOMContentLoaded', function() {
     createProjectCards();
     createExperienceSection();
     createMediumArticleCards();
+    createLatestItems();
+    createUpcomingItems();
 });
 
 // Add this to your existing DOMContentLoaded event listener
@@ -239,5 +249,4 @@ document.addEventListener('DOMContentLoaded', function() {
     createExperienceSection();
     createMediumArticleCards();
     createLatestItems();
-    createUpcomingItems();
 });
