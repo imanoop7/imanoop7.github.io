@@ -200,24 +200,34 @@ document.addEventListener('click', function(e) {
     }
 });
 
-const latestItem = {
-    title: "Latest: Fine-Tuning Phi-3 with Unsloth",
-    description: "Just published: A comprehensive guide on fine-tuning the Phi-3 model using Unsloth for superior performance on custom datasets.",
-    link: "https://medium.com/towards-artificial-intelligence/fine-tuning-phi-3-with-unsloth-for-superior-performance-on-custom-data-2c14b3c1e90b",
-    type: "Article"
-};
+const latestItems = [
+    {
+        title: "CNN-from-Scratch",
+        description: "A Convolutional Neural Network implemented from scratch using NumPy. This project includes a custom CNN architecture for recognizing handwritten digits from the MNIST dataset.",
+        link: "https://github.com/imanoop7/CNN-from-Scratch",
+        type: "Project"
+    },
+    {
+        title: "Fine-Tuning Phi-3 with Unsloth",
+        description: "A comprehensive guide on fine-tuning the Phi-3 model using Unsloth for superior performance on custom datasets.",
+        link: "https://medium.com/towards-artificial-intelligence/fine-tuning-phi-3-with-unsloth-for-superior-performance-on-custom-data-2c14b3c1e90b",
+        type: "Article"
+    }
+];
 
-function createLatestItem() {
+function createLatestItems() {
     const container = document.getElementById('latest-content');
     container.innerHTML = ''; // Clear existing content
-    const itemDiv = document.createElement('div');
-    itemDiv.className = 'latest-item';
-    itemDiv.innerHTML = `
-        <h3>${latestItem.title}</h3>
-        <p>${latestItem.description}</p>
-        <a href="${latestItem.link}" target="_blank" class="cta-button">Read More</a>
-    `;
-    container.appendChild(itemDiv);
+    latestItems.forEach(item => {
+        const itemDiv = document.createElement('div');
+        itemDiv.className = 'latest-item';
+        itemDiv.innerHTML = `
+            <h3>${item.title}</h3>
+            <p>${item.description}</p>
+            <a href="${item.link}" target="_blank" class="cta-button">${item.type === 'Project' ? 'View Project' : 'Read Article'}</a>
+        `;
+        container.appendChild(itemDiv);
+    });
 }
 
 // Update the DOMContentLoaded event listener
@@ -228,5 +238,6 @@ document.addEventListener('DOMContentLoaded', function() {
     createProjectCards();
     createExperienceSection();
     createMediumArticleCards();
-    createLatestItem();
+    createLatestItems();
+    createUpcomingItems();
 });
