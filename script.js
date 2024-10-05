@@ -219,7 +219,7 @@ document.addEventListener('click', function(e) {
 const latestItems = [
     {
         title: "My Journey as a Beginner: Implementing Research Papers from Scratch",
-        description: "An article detailing my experience and insights gained from implementing complex research papers as a beginner in the field of AI and machine learning.",
+        description: "An article detailing my experience and insights gained from implementing complex research papers as a beginner in implememting research papers from scratch.",
         link: "https://medium.com/@mauryaanoop3/my-journey-as-a-beginner-implementing-research-papers-from-scratch-15d88ba2a819",
         type: "Article"
     },
