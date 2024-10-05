@@ -10,13 +10,19 @@ const projects = [
         title: "Fine-Tuning Llama-3 using Synthetic Data",
         description: "Implemented fine-tuning techniques on Llama-3 model using synthetic data, improving model performance for specific tasks.",
         image: "https://via.placeholder.com/300x200.png?text=Llama-3+Fine-Tuning",
-        link: "https://github.com/imanoop7/llama-3-fine-tuning"
+        link: "https://github.com/imanoop7/finetunnig-using-synthetic-data"
     },
     {
         title: "Self Corrective Coding Assistant",
         description: "Created an AI-powered coding assistant capable of self-correction, enhancing developer productivity and code quality.",
         image: "https://via.placeholder.com/300x200.png?text=Coding+Assistant",
-        link: "https://github.com/imanoop7/self-corrective-coding-assistant"
+        link: "https://github.com/imanoop7/self-corrective-codding-assistant"
+    },
+    {
+        title: "CNN-from-Scratch",
+        description: "A Convolutional Neural Network implemented from scratch using NumPy. This project includes a custom CNN architecture for recognizing handwritten digits from the MNIST dataset.",
+        image: "https://via.placeholder.com/300x200.png?text=CNN+from+Scratch",
+        link: "https://github.com/imanoop7/CNN-from-Scratch"
     }
 ];
 
@@ -212,16 +218,16 @@ document.addEventListener('click', function(e) {
 
 const latestItems = [
     {
-        title: "CNN-from-Scratch",
-        description: "A Convolutional Neural Network implemented from scratch using NumPy. This project includes a custom CNN architecture for recognizing handwritten digits from the MNIST dataset.",
-        link: "https://github.com/imanoop7/CNN-from-Scratch",
-        type: "Project"
+        title: "My Journey as a Beginner: Implementing Research Papers from Scratch",
+        description: "An article detailing my experience and insights gained from implementing complex research papers as a beginner in the field of AI and machine learning.",
+        link: "https://medium.com/@mauryaanoop3/my-journey-as-a-beginner-implementing-research-papers-from-scratch-15d88ba2a819",
+        type: "Article"
     },
     {
-        title: "Fine-Tuning Phi-3 with Unsloth",
-        description: "A comprehensive guide on fine-tuning the Phi-3 model using Unsloth for superior performance on custom datasets.",
-        link: "https://medium.com/towards-artificial-intelligence/fine-tuning-phi-3-with-unsloth-for-superior-performance-on-custom-data-2c14b3c1e90b",
-        type: "Article"
+        title: "UNet-from-Scratch-using-Python",
+        description: "Implementation of the UNet architecture from scratch using Python and PyTorch, demonstrating deep learning concepts in image segmentation.",
+        link: "https://github.com/imanoop7/UNet-from-Scratch-using-Python-and-Pytorch",
+        type: "Project"
     }
 ];
 
