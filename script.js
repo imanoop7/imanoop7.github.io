@@ -71,7 +71,7 @@ const mediumArticles = [
         title: "Building a SQL Agent Using CrewAI and Ollama: A Comprehensive Guide",
         description: "SQL (Structured Query Language) remains the backbone of database management and manipulation, allowing for precise data querying and retrieval. However, constructing and executing SQL queries, especially complex ones, can be a time-consuming and error-prone task. Enter the realm of AI-powered automation with CrewAI and Ollama, tools designed to streamline and enhance database operations through intelligent agents.This article will take you on a detailed journey to create a sophisticated SQL agent using CrewAI and Ollama. We will cover everything from the initial setup and database preparation to the implementation of SQL tools, defining agents, creating tasks, and executing the entire process. Whether you’re a database developer, data analyst, or a technical enthusiast, this guide will equip you with the knowledge and tools to build an efficient SQL agent.",
         link: "https://medium.com/@mauryaanoop3/building-a-sql-agent-using-crewai-and-ollama-a-comprehensive-guide-1ad089610056",
-        image: "https://via.placeholder.com/300x200.png?text=NLP+Deep+Dive"
+        image: "https://via.placeholder.com/300x200.png?text=CREWAI+Ollama"
     }
 ];
 
