@@ -218,6 +218,12 @@ document.addEventListener('click', function(e) {
 
 const latestItems = [
     {
+        title: "A Deep Dive into Retrieval-Augmented Generation (RAG) with HyDE: How to Enhance Your AI's Response Quality",
+        description: "An in-depth exploration of Retrieval-Augmented Generation (RAG) using Hypothetical Document Embeddings (HyDE) to improve AI response quality.",
+        link: "https://medium.com/@mauryaanoop3/a-deep-dive-into-retrieval-augmented-generation-rag-with-hyde-how-to-enhance-your-ais-response-4d7ac0b8c200",
+        type: "Article"
+    },
+    {
         title: "Highlighting and Annotating PDFs on UI Using Streamlit for Retrieval-Augmented Generation (RAG)",
         description: "An article detailing how to build an AI-powered document assistant using Streamlit and RAG, focusing on PDF highlighting and annotation.",
         link: "https://medium.com/@mauryaanoop3/from-pdfs-to-answers-building-an-ai-powered-document-assistant-with-streamlit-and-rag-bb3cd9478937",
