@@ -4,12 +4,12 @@ const projects = [
         title: "Deep-Drowsiness-Detection-using-YOLO",
         description: "Developed a real-time drowsiness detection system using YOLO, enhancing road safety through advanced computer vision techniques.",
         image: "https://via.placeholder.com/300x200.png?text=Drowsiness+Detection",
-        link: "https://github.com/imanoop7/Deep-Drowsiness-Detection-using-YOLO"
+        link: "https://github.com/imanoop7/Deep-Drowsiness"
     },
     {
         title: "Fine-Tuning Llama-3 using Synthetic Data",
         description: "Implemented fine-tuning techniques on Llama-3 model using synthetic data, improving model performance for specific tasks.",
-        image: "https://via.placeholder.com/300x200.png?text=Llama-3+Fine-Tuning",
+        image: "https://via.placeholder.com/300x200.png?text=Llama-3",
         link: "https://github.com/imanoop7/finetunnig-using-synthetic-data"
     },
     {
@@ -21,8 +21,14 @@ const projects = [
     {
         title: "CNN-from-Scratch",
         description: "A Convolutional Neural Network implemented from scratch using NumPy. This project includes a custom CNN architecture for recognizing handwritten digits from the MNIST dataset.",
-        image: "https://via.placeholder.com/300x200.png?text=CNN+from+Scratch",
+        image: "https://via.placeholder.com/300x200.png?text=CNN",
         link: "https://github.com/imanoop7/CNN-from-Scratch"
+    },
+    {
+        title: "UNet-from-Scratch-using-Python",
+        description: "Implementation of the UNet architecture from scratch using Python and PyTorch, demonstrating deep learning concepts in image segmentation.",
+        link: "https://github.com/imanoop7/UNet-from-Scratch-using-Python-and-Pytorch",
+        image: "https://via.placeholder.com/300x200.png?text=UNET"
     }
 ];
 
@@ -53,13 +59,13 @@ const mediumArticles = [
         title: "Fine-tuning LLMs for Natural Language to SQL Query Generation Using Synthetic Data: A Comprehensive Guide for Beginners",
         description: "we’ll explore how to fine-tune Large Language Models (LLMs) to generate SQL queries from natural language inputs. This process, known as Natural Language to SQL (NL2SQL), is a powerful tool that allows non-technical users to interact with databases using everyday language. We’ll break down each step of the process, explaining key concepts and providing detailed instructions to help you understand and implement your own NL2SQL system.",
         link: "https://medium.com/towards-artificial-intelligence/fine-tuning-llms-for-natural-language-to-sql-query-generation-using-synthetic-data-a-comprehensive-38afdafc90b0",
-        image: "https://via.placeholder.com/300x200.png?text=Fine+Tunning+Using+Synthetic+Data"
+        image: "https://via.placeholder.com/300x200.png?text=Synthetic+Data"
     },
     {
         title: "Fine-Tuning Phi-3 with Unsloth for Superior Performance on Custom Data",
         description: "Phi-3, a powerful large language model (LLM) from Microsoft AI, holds immense potential for various tasks. But to truly unlock its potential for your specific needs, fine-tuning on your custom data is crucial. This article delves into using Unsloth, a cutting-edge library, to streamline the fine-tuning process of Phi-3 for your unique dataset",
         link: "https://medium.com/towards-artificial-intelligence/fine-tuning-phi-3-with-unsloth-for-superior-performance-on-custom-data-2c14b3c1e90b",
-        image: "https://via.placeholder.com/300x200.png?text=Fine+Tuning-Phi3+with+Unsloth"
+        image: "https://via.placeholder.com/300x200.png?text=Unsloth"
     },
     {
         title: "Supercharge Your Workflow: Unlocking Advanced Concepts of Microsoft Autogen",
@@ -216,7 +222,7 @@ document.addEventListener('click', function(e) {
     }
 });
 
-const latestItems = [
+const articles = [
     {
         title: "A Deep Dive into Retrieval-Augmented Generation (RAG) with HyDE: How to Enhance Your AI's Response Quality",
         description: "An in-depth exploration of Retrieval-Augmented Generation (RAG) using Hypothetical Document Embeddings (HyDE) to improve AI response quality.",
@@ -234,11 +240,38 @@ const latestItems = [
         description: "An article detailing my experience and insights gained from implementing complex research papers as a beginner in implementing research papers from scratch.",
         link: "https://medium.com/@mauryaanoop3/my-journey-as-a-beginner-implementing-research-papers-from-scratch-15d88ba2a819",
         type: "Article"
+    }
+];
+
+const latestItems = [
+    {
+        title: "Building Your Own Generative Search Engine for Local Files Using Open-Source Models 🧐📂",
+        description: "A comprehensive guide on creating a generative search engine for local files using open-source models, FAISS, and sentence transformers.",
+        link: "https://medium.com/towards-artificial-intelligence/building-your-own-generative-search-engine-for-local-files-using-open-source-models-b09af871751c",
+        type: "Article"
     },
     {
-        title: "UNet-from-Scratch-using-Python",
-        description: "Implementation of the UNet architecture from scratch using Python and PyTorch, demonstrating deep learning concepts in image segmentation.",
-        link: "https://github.com/imanoop7/UNet-from-Scratch-using-Python-and-Pytorch",
+        title: "Building Your Own Generative Search Engine for Local Files Using Open-Source Models 🧐📂:Part-2",
+        description: "A sequel to the first article, focusing on enhancing the generative search engine with visual capabilities using the LLaVA model.",
+        link: "https://medium.com/towards-artificial-intelligence/building-your-own-generative-search-engine-for-local-files-using-open-source-models-part-2-4e869f62a9ee",
+        type: "Article"
+    },
+    {
+        title: "Fine-Tuning BERT for Phishing URL Detection: A Beginner's Guide",
+        description: "A guide on fine-tuning BERT for the specific task of phishing URL detection, covering essential concepts and providing a comprehensive example using Python.",
+        link: "https://medium.com/towards-artificial-intelligence/fine-tuning-bert-for-phishing-url-detection-a-beginners-guide-619fad27db41",
+        type: "Article"
+    },
+    {
+        title: "GPT-2 Tokenizer from Scratch",
+        description: "An implementation of the GPT-2 tokenizer from scratch, demonstrating the inner workings of this crucial component in natural language processing.",
+        link: "https://github.com/imanoop7/GPT-2-Tokenizer-from-Scratch",
+        type: "Project"
+    },
+    {
+        title: "Generative Search Engine For Local Files",
+        description: "An AI-powered document search and question-answering system that allows users to explore and extract information from their local documents using natural language queries.",
+        link: "https://github.com/imanoop7/Generative-Search-Engine-For-Local-Files",
         type: "Project"
     }
 ];
