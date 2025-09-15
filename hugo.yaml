@@ -1,0 +1,74 @@
+baseURL: "https://anoopmaurya.github.io/"
+title: "Anoop Maurya"
+pagination:
+  pagerSize: 5
+theme: ["PaperMod"]
+
+enableRobotsTXT: true
+buildDrafts: false
+buildFuture: false
+buildExpired: false
+
+minify:
+  disableXML: true
+  minifyOutput: true
+
+params:
+  env: production
+  title: Anoop Maurya's Blog
+  description: "Welcome to my personal blog"
+  keywords: [Blog, Portfolio, PaperMod]
+  author: Anoop Maurya
+  DateFormat: "January 2, 2006"
+  defaultTheme: auto
+  disableThemeToggle: false
+
+  ShowReadingTime: true
+  ShowShareButtons: true
+  ShowPostNavLinks: true
+  ShowBreadCrumbs: true
+  ShowCodeCopyButtons: true
+  ShowWordCount: true
+  ShowRssButtonInSectionTermList: true
+  UseHugoToc: true
+  disableSpecial1stPost: false
+  disableScrollToTop: false
+  comments: false
+  hidemeta: false
+  hideSummary: false
+  showtoc: false
+  tocopen: false
+
+  profileMode:
+    enabled: false
+
+  homeInfoParams:
+    Title: "👋 Welcome"
+    Content: "Hi, this is Anoop. I'm documenting my learning notes in this blog since 2025. Between ChatGPT, Claude, and Copilot arguing over my grammar, you can guess who's winning 😉"
+
+  socialIcons:
+    - name: github
+      url: "https://x.com/imanoop_7"
+    - name: medium
+      url: "https://medium.com/@mauryaanoop3"
+    - name: linkedin
+      url: "https://www.linkedin.com/in/anoop-maurya-908499148/"
+    - name: x
+      url: "https://x.com/imanoop_7"
+    - name: huggingface
+      url: "https://huggingface.co/imanoop7"
+
+menu:
+  main:
+    - identifier: archives
+      name: Archives
+      url: /archives/
+      weight: 10
+    - identifier: categories
+      name: Categories
+      url: /categories/
+      weight: 20
+    - identifier: tags
+      name: Tags
+      url: /tags/
+      weight: 30
