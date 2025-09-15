@@ -20,11 +20,14 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          submodules: true
+          fetch-depth: 0
 
       - name: Setup Hugo
-        uses: peaceiris/actions-hugo@v2
+        uses: peaceiris/actions-hugo@v3
         with:
-          hugo-version: '0.150.0'
+          hugo-version: 'latest'
           extended: true
 
       - name: Cache Hugo resources
@@ -39,7 +42,7 @@ jobs:
         env:
           HUGO_ENV: production
         run: |
-          hugo --minify --gc --baseURL "https://imanoop7.github.io/"
+          hugo --minify --gc
 
       - name: Add .nojekyll
         run: |
