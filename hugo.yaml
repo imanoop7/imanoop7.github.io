@@ -13,6 +13,13 @@ minify:
   disableXML: true
   minifyOutput: true
 
+# Enable JSON output on home for search index
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON
+
 params:
   env: production
   title: Anoop Maurya's Blog
@@ -22,6 +29,17 @@ params:
   DateFormat: "January 2, 2006"
   defaultTheme: auto
   disableThemeToggle: false
+
+  # Enable built-in PaperMod search
+  search: true
+  fuseOpts:
+    isCaseSensitive: false
+    shouldSort: true
+    includeMatches: true
+    threshold: 0.1
+    ignoreLocation: true
+    minMatchCharLength: 2
+    keys: ["title", "permalink", "summary", "content"]
 
   ShowReadingTime: true
   ShowShareButtons: true
@@ -60,6 +78,10 @@ params:
 
 menu:
   main:
+    - identifier: posts
+      name: Posts
+      url: /posts/
+      weight: 5
     - identifier: archives
       name: Archives
       url: /archives/
@@ -72,3 +94,11 @@ menu:
       name: Tags
       url: /tags/
       weight: 30
+    - identifier: search
+      name: Search
+      url: /search/
+      weight: 40
+    - identifier: faq
+      name: FAQ
+      url: /faq/
+      weight: 50

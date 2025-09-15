@@ -5,15 +5,17 @@ date: 2025-09-15T12:00:00+00:00
 # aliases: ["/first"]
 tags: ["first"]
 author: "Anoop Maurya"
+author: ["Me"] # multiple authors
 showToc: true
 TocOpen: false
 draft: false
 hidemeta: false
 comments: false
 description: "This blog gives a beginner-friendly introduction to the Attention Is All You Need paper."
-canonicalURL: "https://imanoop7.github.io/posts/attention_transformer_blog/"
+canonicalURL: "https://anoopmaurya.github.io/content/posts/attention_transformer_blog.md"
 disableHLJS: false # to disable highlightjs
 disableShare: false
+disableHLJS: false
 hideSummary: false
 searchHidden: false
 ShowReadingTime: true
@@ -23,131 +25,47 @@ ShowWordCount: true
 ShowRssButtonInSectionTermList: true
 UseHugoToc: true
 ---
+# Transformers from Scratch: Implementing *Attention Is All You Need*
 
-# Attention Is All You Need (Transformer Explained)
+Transformers have transformed the field of sequence modeling by replacing recurrent nets with self-attention. I was curious about how exactly this works under the hood, so I dove into the “Attention Is All You Need” paper and tried building the components from scratch in PyTorch. In this post I share my understanding and some hands-on insights from that process. I’ll cover the motivation behind Transformers, break down the core ideas, and show PyTorch snippets for the key modules: scaled dot-product attention, multi-head attention, positional encoding, and an encoder layer. Along the way I’ll mention a few hiccups and “aha!” moments I had – hopefully to make this journey relatable to anyone else who’s wrapped their head around this for the first time.
 
-The **Transformer** is a deep learning model that changed the way we deal with sequences like text.  
-Unlike RNNs or LSTMs, it does **not** use recurrence. Instead it uses only **attention**.  
-This makes it faster, more parallelizable, and better at handling long-range dependencies.  
+## Motivation
 
----
+Before Transformers, sequence models like RNNs or LSTMs were the standard for tasks like machine translation or text modeling. These models process data step-by-step, which makes it hard to parallelize and can struggle with long-range dependencies. The **Transformer** architecture changes that by relying entirely on attention mechanisms, allowing information from all time steps to be used at once. I wanted to understand why this matters and how to implement it myself. Some motivations that stood out to me:
 
-## Why not RNNs or LSTMs?
-- They process one token at a time → slow.  
-- They forget things that happened far in the past.  
-- Hard to train on long sequences.  
+- **Parallelism and efficiency**: Self-attention lets us process all tokens at once instead of sequentially, so training can be much faster on modern hardware.
+- **Long-range context**: Every token can attend to any other token, so the model can capture relationships across long distances without vanishing gradients.
+- **Simplicity of components**: Despite being powerful, the Transformer’s building blocks (attention, feed-forward layers, etc.) are relatively simple operations. This made me think it would be feasible to code and inspect them directly.
+- **Practical success**: Many cutting-edge models (like BERT or GPT) are based on this, so learning it deeply feels like a useful investment.
 
-**Transformer**: all tokens attend to each other at once.  
-**RNN/LSTM**: step by step, so long distance info can get lost.  
+With those motivations in mind, I decided to implement the pieces myself. In the sections that follow, I’ll dive into each major concept. First I’ll list the core concepts at a high level, then explain them in more detail.
 
----
+## Core Concepts
+
+The Transformer encoder is built from a few key ideas. At a high level, these include:
+
+- **Scaled Dot-Product Attention**: Computes attention scores between queries and keys, scales them, and uses softmax to weight values.
+- **Multi-Head Attention**: Runs multiple attention “heads” in parallel so the model can jointly attend to information from different representation subspaces.
+- **Positional Encoding**: Injects information about the positions of tokens, since attention alone is agnostic to sequence order.
+- **Feed-Forward Network**: A simple two-layer MLP applied to each position separately and identically.
+- **Add & Norm (Residual Connections + Layer Normalization)**: Ensures stable training and easy gradient flow by adding skip connections and normalizing.
+
+Each of these will get its own discussion below. Together they form an *encoder layer*, and stacking several of those (typically 6 or 12 in practice) gives you a Transformer encoder.
 
 ## Scaled Dot-Product Attention
 
-Attention is the core idea.  
-Each word makes a **query** asking "which other words are important?".  
-It compares to all **keys** and gathers info from their **values**.  
-
-Steps:
-1. Compute scores = Q @ K^T  
-2. Scale by sqrt(d_k)  
-3. Mask unwanted positions (optional)  
-4. Softmax to get weights  
-5. Weighted sum with V  
+At the heart of a Transformer is the attention mechanism. Given a set of queries Q, keys K, and values V, scaled dot-product attention computes a weighted sum of the values, where weights come from the similarity of queries with keys. The “scaled” part means we divide by sqrt(d_k) to keep the values from blowing up when dimensions are large.
 
 ```python
 import torch
 import math
 
-def attention(Q, K, V, mask=None):
-    scores = torch.matmul(Q, K.transpose(-2, -1)) / math.sqrt(Q.size(-1))
+def scaled_dot_product_attention(Q, K, V, mask=None):
+    d_k = Q.size(-1)
+    scores = torch.matmul(Q, K.transpose(-2, -1)) / math.sqrt(d_k)
     if mask is not None:
         scores = scores.masked_fill(mask == 0, float('-inf'))
-    weights = torch.softmax(scores, dim=-1)
-    return torch.matmul(weights, V)
-```
-
----
-
-## Multi-Head Attention
-
-Instead of one attention, we do it in parallel with multiple heads.  
-Each head can focus on different relations (like grammar or meaning).  
-
-```python
-import torch.nn as nn
-
-class MultiHeadAttention(nn.Module):
-    def __init__(self, d_model, num_heads):
-        super().__init__()
-        assert d_model % num_heads == 0
-        self.d_k = d_model // num_heads
-        self.num_heads = num_heads
-        self.q_lin = nn.Linear(d_model, d_model)
-        self.k_lin = nn.Linear(d_model, d_model)
-        self.v_lin = nn.Linear(d_model, d_model)
-        self.out_lin = nn.Linear(d_model, d_model)
-        
-    def forward(self, Q, K, V, mask=None):
-        bsz = Q.size(0)
-        Q = self.q_lin(Q).view(bsz, -1, self.num_heads, self.d_k).transpose(1,2)
-        K = self.k_lin(K).view(bsz, -1, self.num_heads, self.d_k).transpose(1,2)
-        V = self.v_lin(V).view(bsz, -1, self.num_heads, self.d_k).transpose(1,2)
-        
-        scores = torch.matmul(Q, K.transpose(-2, -1)) / math.sqrt(self.d_k)
-        if mask is not None:
-            scores = scores.masked_fill(mask == 0, float('-inf'))
-        attn = torch.softmax(scores, dim=-1)
-        out = torch.matmul(attn, V)
-        out = out.transpose(1,2).contiguous().view(bsz, -1, self.num_heads*self.d_k)
-        return self.out_lin(out)
-```
-
----
-
-## Positional Encoding
-
-Since there is no recurrence, we need to tell the model the **order** of words.  
-We add a sinusoidal encoding to the embeddings.  
-
-```python
-class PositionalEncoding(nn.Module):
-    def __init__(self, d_model, max_len=5000):
-        super().__init__()
-        import torch
-        import math
-        pe = torch.zeros(max_len, d_model)
-        pos = torch.arange(0, max_len).unsqueeze(1).float()
-        div = torch.exp(torch.arange(0, d_model, 2).float() * (-math.log(10000.0) / d_model))
-        pe[:, 0::2] = torch.sin(pos * div)
-        pe[:, 1::2] = torch.cos(pos * div)
-        pe = pe.unsqueeze(0)
-        self.register_buffer('pe', pe)
-    def forward(self, x):
-        return x + self.pe[:, :x.size(1)]
-```
-
----
-
-## Encoder Layer (simplified)
-
-```python
-class EncoderLayer(nn.Module):
-    def __init__(self, d_model, num_heads, d_ff):
-        super().__init__()
-        self.attn = MultiHeadAttention(d_model, num_heads)
-        self.ff = nn.Sequential(
-            nn.Linear(d_model, d_ff),
-            nn.ReLU(),
-            nn.Linear(d_ff, d_model)
-        )
-        self.norm1 = nn.LayerNorm(d_model)
-        self.norm2 = nn.LayerNorm(d_model)
-        
-    def forward(self, x, mask=None):
-        attn_out = self.attn(x, x, x, mask)
-        x = self.norm1(x + attn_out)
-        ff_out = self.ff(x)
-        x = self.norm2(x + ff_out)
-        return x
+    attn_weights = torch.softmax(scores, dim=-1)
+    output = torch.matmul(attn_weights, V)
+    return output, attn_weights
 ```
