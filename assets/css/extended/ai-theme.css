@@ -1,0 +1,135 @@
+:root {
+  --ai-accent: #8a2be2; /* electric purple */
+  --ai-accent-2: #00e5ff; /* cyan */
+  --ai-glow: 0 0 12px rgba(138, 43, 226, 0.35), 0 0 24px rgba(0, 229, 255, 0.25);
+  /* tighter global spacing */
+  --gap: 16px;
+  --content-gap: 14px;
+}
+
+/* Light mode overrides */
+:root {
+  --primary: #1b1b1f;
+  --secondary: #5a5a63;
+  --tertiary: #e6e6ea;
+  --content: #1f1f22;
+  --border: #ececf1;
+}
+
+/* Dark mode overrides */
+.dark {
+  --entry: #1f2025;
+  --primary: #e7e7ea;
+  --secondary: #b0b0b8;
+  --tertiary: #3a3b41;
+  --content: #d6d6db;
+  --border: #2f3137;
+}
+
+/* Links with neon accent */
+a {
+  color: var(--ai-accent);
+}
+a:hover {
+  color: var(--ai-accent-2);
+  text-shadow: var(--ai-glow);
+}
+
+/* Header: brand title + theme toggle */
+.header .logo a {
+  color: var(--ai-accent);
+  font-weight: 800;
+  letter-spacing: 0.2px;
+  background-image: linear-gradient(90deg, var(--ai-accent), var(--ai-accent-2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.header .logo a:hover {
+  text-shadow: 0 0 10px rgba(138, 43, 226, 0.3);
+}
+.logo-switches {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+#theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 32px;
+  width: 42px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--primary);
+  transition: box-shadow .2s ease, border-color .2s ease, transform .15s ease;
+}
+#theme-toggle:hover {
+  border-color: var(--ai-accent);
+  box-shadow: var(--ai-glow);
+  transform: translateY(-1px);
+}
+
+/* Header logo/title slight glow on hover */
+header.site-header a:hover {
+  text-shadow: var(--ai-glow);
+}
+
+/* Card/entry subtle border and hover lift */
+.post-entry, .archive-entry {
+  border: 1px solid var(--border);
+  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+  margin-bottom: 14px;
+  padding: 14px;
+}
+.post-entry:hover, .archive-entry:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 24px rgba(0,0,0,.08), var(--ai-glow);
+  border-color: rgba(138, 43, 226, 0.35);
+}
+
+/* Code blocks with accent top border */
+pre, .highlight {
+  border-top: 2px solid var(--ai-accent);
+}
+
+/* Buttons and chips */
+.btn, .tag, .paginav a {
+  border-radius: 999px;
+}
+.paginav a:hover {
+  box-shadow: var(--ai-glow);
+}
+
+/* Search focus ring */
+input[type="search"], input[type="text"] {
+  transition: box-shadow .2s ease, border-color .2s ease;
+}
+input[type="search"]:focus, input[type="text"]:focus {
+  border-color: var(--ai-accent);
+  box-shadow: 0 0 0 3px rgba(138, 43, 226, 0.25);
+}
+
+/* Profile mode avatar ring (if enabled later) */
+.profile .avatar img {
+  box-shadow: 0 0 0 3px rgba(138, 43, 226, 0.35), 0 0 0 6px rgba(0, 229, 255, 0.2);
+}
+
+/* Home info spacing tightening */
+.first-entry {
+  min-height: 220px;
+  margin: 12px 0 16px 0;
+}
+.home-info .entry-content {
+  margin: 8px 0 !important;
+}
+.social-icons a {
+  padding: 6px !important;
+}
+.social-icons a svg {
+  height: 22px !important;
+  width: 22px !important;
+}
+
+

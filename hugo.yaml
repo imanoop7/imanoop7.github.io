@@ -30,6 +30,7 @@ params:
   defaultTheme: auto
   disableThemeToggle: false
 
+
   # Enable built-in PaperMod search
   search: true
   fuseOpts:
