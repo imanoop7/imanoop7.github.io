@@ -62,7 +62,7 @@ params:
 
   homeInfoParams:
     Title: "👋 Welcome"
-    Content: "Hi, this is Anoop. I'm documenting my learning notes in this blog since 2025. Between ChatGPT, Claude, and Copilot arguing over my grammar, you can guess who's winning 😉"
+    Content: "Hi, this is Anoop. I'm documenting my learning notes in this blog. Between ChatGPT, Claude, and Copilot arguing over my grammar, you can guess who's winning 😉"
 
   socialIcons:
     - name: github
@@ -75,12 +75,14 @@ params:
       url: "https://x.com/imanoop_7"
     - name: huggingface
       url: "https://huggingface.co/imanoop7"
+    - name: rss
+      url: "/index.xml"
 
 menu:
   main:
     - identifier: posts
       name: Posts
-      url: /posts/
+      url: /
       weight: 5
     - identifier: archives
       name: Archives
