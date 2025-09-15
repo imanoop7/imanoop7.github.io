@@ -1,0 +1,58 @@
+name: Deploy Hugo site to GitHub Pages
+
+on:
+  push:
+    branches: [ main, master ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: '0.150.0'
+          extended: true
+
+      - name: Cache Hugo resources
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cache/hugo
+            resources
+          key: ${{ runner.os }}-hugo-${{ hashFiles('**/*') }}
+
+      - name: Build
+        run: |
+          hugo --minify --baseURL "https://imanoop7.github.io/"
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./public
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+
