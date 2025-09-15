@@ -5,17 +5,15 @@ date: 2025-09-15T12:00:00+00:00
 # aliases: ["/first"]
 tags: ["first"]
 author: "Anoop Maurya"
-author: ["Me"] # multiple authors
 showToc: true
 TocOpen: false
 draft: false
 hidemeta: false
 comments: false
 description: "This blog gives a beginner-friendly introduction to the Attention Is All You Need paper."
-canonicalURL: "https://anoopmaurya.github.io/content/posts/attention_transformer_blog.md"
+canonicalURL: "https://imanoop7.github.io/posts/attention_transformer_blog/"
 disableHLJS: false # to disable highlightjs
 disableShare: false
-disableHLJS: false
 hideSummary: false
 searchHidden: false
 ShowReadingTime: true
@@ -30,14 +28,14 @@ UseHugoToc: true
 
 The **Transformer** is a deep learning model that changed the way we deal with sequences like text.  
 Unlike RNNs or LSTMs, it does **not** use recurrence. Instead it uses only **attention**.  
-This makes it faster, more parallelizable, and better at handling long-range dependancies.  
+This makes it faster, more parallelizable, and better at handling long-range dependencies.  
 
 ---
 
 ## Why not RNNs or LSTMs?
 - They process one token at a time → slow.  
-- They forget things that happend far in the past.  
-- Hard to train on long sequnces.  
+- They forget things that happened far in the past.  
+- Hard to train on long sequences.  
 
 **Transformer**: all tokens attend to each other at once.  
 **RNN/LSTM**: step by step, so long distance info can get lost.  

@@ -36,8 +36,14 @@ jobs:
           key: ${{ runner.os }}-hugo-${{ hashFiles('**/*') }}
 
       - name: Build
+        env:
+          HUGO_ENV: production
         run: |
-          hugo --minify --baseURL "https://imanoop7.github.io/"
+          hugo --minify --gc --baseURL "https://imanoop7.github.io/"
+
+      - name: Add .nojekyll
+        run: |
+          touch public/.nojekyll
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
