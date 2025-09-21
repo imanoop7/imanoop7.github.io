@@ -15,5 +15,14 @@
       <guid>http://localhost:1313/posts/attention_transformer_blog/</guid>
       <description>Beginner-to-intermediate guide to the Transformer with PyTorch code: attention, multi-head attention, positional encoding, and a minimal encoder.</description>
     </item>
+    <item>
+      <title></title>
+      <link>http://localhost:1313/posts/agent_from_scratch/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/agent_from_scratch/</guid>
+      <description>&lt;h1 id=&#34;building-ai-agents-from-scratch-understanding-the-core-components-behind-the-magic&#34;&gt;Building AI Agents from Scratch: Understanding the Core Components Behind the Magic&lt;/h1&gt;
+&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;As a data scientist and AI engineer, I&amp;rsquo;ve spent countless hours working with various agentic frameworks like LangGraph, AutoGen, and CrewAI. While these tools are incredibly powerfull and make our lives easier, I often found myself wondering: &lt;em&gt;what actually happens under the hood?&lt;/em&gt; What makes an AI agent tick? How do all these pieces come together to create something that can think, plan, and act autonomously?&lt;/p&gt;</description>
+    </item>
   </channel>
 </rss>
