@@ -311,3 +311,5 @@ Remember: every expert was once a beginner. The best way to truly understand AI 
 ---
 
 *Have you built your own agents from scratch? I'd love to hear about your experiences and what you learned along the way. Drop me a note and let's discuss the fascinating world of agentic AI!*
+
+{{< citation >}}

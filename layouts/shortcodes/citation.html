@@ -1,0 +1,118 @@
+{{- $title := .Page.Title -}}
+{{- $author := .Page.Params.author | default "Anoop Maurya" -}}
+{{- $date := .Page.Date -}}
+{{- $url := .Page.Permalink -}}
+{{- $year := $date.Format "2006" -}}
+{{- $month := $date.Format "January" -}}
+{{- $monthShort := $date.Format "Jan" -}}
+{{- $bibtexKey := printf "maurya%s%s" $year (lower $monthShort) -}}
+
+<div class="citation-section">
+    <h2>Citation</h2>
+    <p>Please cite this work as:</p>
+    
+    <div class="citation-box">
+        <pre><code id="plain-citation">{{ $author }}. "{{ $title }}". {{ .Site.Title }} ({{ $monthShort }} {{ $year }}). {{ $url }}</code></pre>
+        <button class="copy-btn" onclick="copyPlainCitation()">copy</button>
+    </div>
+    
+    <p>Or use the BibTeX citation:</p>
+    
+    <div class="citation-box">
+        <pre><code id="bibtex-citation">@article{{ "{" }}{{ $bibtexKey }},
+  title = {{ "{" }}{{ $title }}{{ "}" }},
+  author = {{ "{" }}{{ $author }}{{ "}" }},
+  journal = {{ "{" }}{{ .Site.Title }}{{ "}" }},
+  year = {{ "{" }}{{ $year }}{{ "}" }},
+  month = {{ "{" }}{{ $month }}{{ "}" }},
+  url = "{{ $url }}"
+{{ "}" }}</code></pre>
+        <button class="copy-btn" onclick="copyBibtexCitation()">copy</button>
+    </div>
+</div>
+
+<script>
+function copyPlainCitation() {
+    const text = document.getElementById('plain-citation').textContent.trim();
+    navigator.clipboard.writeText(text).then(function() {
+        event.target.textContent = 'copied!';
+        setTimeout(() => {
+            event.target.textContent = 'copy';
+        }, 2000);
+    });
+}
+
+function copyBibtexCitation() {
+    const text = document.getElementById('bibtex-citation').textContent.trim();
+    navigator.clipboard.writeText(text).then(function() {
+        event.target.textContent = 'copied!';
+        setTimeout(() => {
+            event.target.textContent = 'copy';
+        }, 2000);
+    });
+}
+</script>
+
+<style>
+.citation-section {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 2px solid var(--border);
+}
+
+.citation-box {
+    position: relative;
+    margin: 1rem 0;
+}
+
+.citation-box pre {
+    background: var(--code-bg);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 1rem;
+    overflow-x: auto;
+    margin: 0;
+}
+
+.citation-box code {
+    background: transparent;
+    padding: 0;
+    color: var(--primary);
+}
+
+.copy-btn {
+    position: absolute !important;
+    top: 0.75rem !important;
+    right: 0.75rem !important;
+    background: var(--theme) !important;
+    color: var(--content) !important;
+    border: 1px solid var(--border) !important;
+    padding: 0.4rem 0.8rem !important;
+    border-radius: 6px !important;
+    cursor: pointer !important;
+    font-size: 0.75rem !important;
+    font-weight: 500 !important;
+    transition: all 0.2s ease !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) !important;
+    text-transform: lowercase !important;
+    letter-spacing: 0.5px !important;
+    z-index: 999 !important;
+    display: block !important;
+}
+
+.copy-btn:nth-child(n+2) {
+    display: none !important;
+}
+
+.copy-btn:hover {
+    background: var(--tertiary) !important;
+    border-color: var(--tertiary) !important;
+    transform: translateY(-1px) !important;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15) !important;
+}
+
+.copy-btn:active {
+    transform: translateY(0) !important;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1) !important;
+}
+</style>
