@@ -1,8 +1,8 @@
 
 ---
 title: "Building AI Agents from Scratch: Understanding the Core Components Behind the Magic"
-date: 2025-09-15T12:00:00+00:00
-tags: ["transformers", "pytorch", "nlp"]
+date: 2025-09-21T12:34:00+00:00
+tags: ["ai-agents", "llm", "python", "langraph", "autogen", "crewai", "tool-integration", "agent-architecture", "machine-learning"]
 author: "Anoop Maurya"
 showToc: true
 TocOpen: false
