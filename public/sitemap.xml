@@ -2,31 +2,60 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>http://localhost:1313/tags/agent-architecture/</loc>
+    <lastmod>2025-09-21T12:34:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/ai-agents/</loc>
+    <lastmod>2025-09-21T12:34:00+00:00</lastmod>
+  </url><url>
     <loc>http://localhost:1313/</loc>
-    <lastmod>2025-09-21T12:00:00+00:00</lastmod>
+    <lastmod>2025-09-21T12:34:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/autogen/</loc>
+    <lastmod>2025-09-21T12:34:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/agent_from_scratch/</loc>
-    <lastmod>2025-09-21T12:00:00+00:00</lastmod>
+    <lastmod>2025-09-21T12:34:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/nlp/</loc>
-    <lastmod>2025-09-21T12:00:00+00:00</lastmod>
+    <loc>http://localhost:1313/tags/crewai/</loc>
+    <lastmod>2025-09-21T12:34:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/langraph/</loc>
+    <lastmod>2025-09-21T12:34:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/llm/</loc>
+    <lastmod>2025-09-21T12:34:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/machine-learning/</loc>
+    <lastmod>2025-09-21T12:34:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/</loc>
-    <lastmod>2025-09-21T12:00:00+00:00</lastmod>
+    <lastmod>2025-09-21T12:34:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/pytorch/</loc>
-    <lastmod>2025-09-21T12:00:00+00:00</lastmod>
+    <loc>http://localhost:1313/tags/python/</loc>
+    <lastmod>2025-09-21T12:34:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/</loc>
-    <lastmod>2025-09-21T12:00:00+00:00</lastmod>
+    <lastmod>2025-09-21T12:34:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/tool-integration/</loc>
+    <lastmod>2025-09-21T12:34:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/nlp/</loc>
+    <lastmod>2025-09-15T12:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/pytorch/</loc>
+    <lastmod>2025-09-15T12:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/transformers/</loc>
-    <lastmod>2025-09-21T12:00:00+00:00</lastmod>
+    <lastmod>2025-09-15T12:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/attention_transformer_blog/</loc>
     <lastmod>2025-09-15T12:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/archives/</loc>
+  </url><url>
+    <loc>http://localhost:1313/archived-posts/</loc>
   </url><url>
     <loc>http://localhost:1313/categories/</loc>
   </url><url>

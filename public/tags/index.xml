@@ -6,8 +6,71 @@
     <description>Recent content in Tags on Anoop Maurya</description>
     <generator>Hugo -- 0.150.0</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 21 Sep 2025 12:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 21 Sep 2025 12:34:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Agent-Architecture</title>
+      <link>http://localhost:1313/tags/agent-architecture/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/agent-architecture/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Ai-Agents</title>
+      <link>http://localhost:1313/tags/ai-agents/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/ai-agents/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Autogen</title>
+      <link>http://localhost:1313/tags/autogen/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/autogen/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Crewai</title>
+      <link>http://localhost:1313/tags/crewai/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/crewai/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Langraph</title>
+      <link>http://localhost:1313/tags/langraph/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/langraph/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Llm</title>
+      <link>http://localhost:1313/tags/llm/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/llm/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Machine-Learning</title>
+      <link>http://localhost:1313/tags/machine-learning/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/machine-learning/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Python</title>
+      <link>http://localhost:1313/tags/python/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/python/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Tool-Integration</title>
+      <link>http://localhost:1313/tags/tool-integration/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/tool-integration/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Nlp</title>
       <link>http://localhost:1313/tags/nlp/</link>

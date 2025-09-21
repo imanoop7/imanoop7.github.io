@@ -1,0 +1,43 @@
+{{- define "main" }}
+
+<header class="page-header">
+  <h1>{{ .Title }}</h1>
+  {{- if .Description }}
+  <div class="post-description">
+    {{ .Description }}
+  </div>
+  {{- end }}
+</header>
+
+{{- $pages := where .Site.RegularPages "Section" "archived-posts" }}
+{{- if .Site.Params.ShowAllPagesInArchive }}
+{{- $pages = .Site.RegularPages }}
+{{- end }}
+
+{{- range $pages.GroupByPublishDate "2006" }}
+{{- if ne .Key "0001" }}
+<div class="archive-year">
+  <h2 class="archive-year-header">
+    {{- replace .Key "0001" "" }}{{- if eq .Key "0001" }}{{- else }}{{- .Key }}{{- end }}
+  </h2>
+  {{- range .Pages }}
+  {{- if eq .Kind "page" }}
+  <div class="archive-month">
+    <div class="archive-entry">
+      <h3 class="archive-entry-title">
+        <a href="{{ .Permalink }}" aria-label="post title">{{ .Title }}</a>
+      </h3>
+      <div class="archive-meta">
+        {{- if (not .Site.Params.hideMeta) }}
+        <span title='{{ .Date.Format "January 2, 2006" }}'>{{ .Date.Format "Jan 2" }}</span>
+        {{- end }}
+      </div>
+    </div>
+  </div>
+  {{- end }}
+  {{- end }}
+</div>
+{{- end }}
+{{- end }}
+
+{{- end }}{{/* end main */}}
