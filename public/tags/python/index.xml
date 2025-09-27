@@ -6,8 +6,15 @@
     <description>Recent content in Python on Anoop Maurya</description>
     <generator>Hugo -- 0.150.0</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 21 Sep 2025 12:34:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 27 Sep 2025 14:45:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>LLMs as Judges: Using Large Language Models to Evaluate AI-Generated Text</title>
+      <link>http://localhost:1313/posts/llm_automated_evaluators/</link>
+      <pubDate>Sat, 27 Sep 2025 14:45:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/llm_automated_evaluators/</guid>
+      <description>A comprehensive guide to using Large Language Models as automated judges for evaluating AI-generated text. Learn how to implement pointwise, pairwise, and ensemble evaluation systems using Python and Ollama, with practical examples and best practices for achieving 80-85% agreement with human evaluators.</description>
+    </item>
     <item>
       <title>Building AI Agents from Scratch: Understanding the Core Components Behind the Magic</title>
       <link>http://localhost:1313/posts/agent_from_scratch/</link>

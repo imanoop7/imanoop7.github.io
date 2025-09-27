@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Llm-Evaluation on Anoop Maurya</title>
+    <link>http://localhost:1313/tags/llm-evaluation/</link>
+    <description>Recent content in Llm-Evaluation on Anoop Maurya</description>
+    <generator>Hugo -- 0.150.0</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 27 Sep 2025 14:45:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/llm-evaluation/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>LLMs as Judges: Using Large Language Models to Evaluate AI-Generated Text</title>
+      <link>http://localhost:1313/posts/llm_automated_evaluators/</link>
+      <pubDate>Sat, 27 Sep 2025 14:45:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/llm_automated_evaluators/</guid>
+      <description>A comprehensive guide to using Large Language Models as automated judges for evaluating AI-generated text. Learn how to implement pointwise, pairwise, and ensemble evaluation systems using Python and Ollama, with practical examples and best practices for achieving 80-85% agreement with human evaluators.</description>
+    </item>
+  </channel>
+</rss>
