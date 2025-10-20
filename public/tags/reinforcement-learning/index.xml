@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Reinforcement-Learning on Anoop Maurya</title>
+    <link>http://localhost:1313/tags/reinforcement-learning/</link>
+    <description>Recent content in Reinforcement-Learning on Anoop Maurya</description>
+    <generator>Hugo -- 0.150.0</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 20 Oct 2025 10:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/reinforcement-learning/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Introduction to Reinforcement Learning for Absolute Beginners</title>
+      <link>http://localhost:1313/posts/introduction-to-reinforcement-learning/</link>
+      <pubDate>Mon, 20 Oct 2025 10:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/introduction-to-reinforcement-learning/</guid>
+      <description>A beginner-friendly guide to understanding Reinforcement Learning - how machines learn from experience, just like humans do when learning to ride a bike or play games.</description>
+    </item>
+  </channel>
+</rss>

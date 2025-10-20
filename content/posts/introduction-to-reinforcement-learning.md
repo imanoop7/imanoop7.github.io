@@ -21,15 +21,21 @@ Reinforcement learning stands out in the AI world because it mimics how humans a
 ![Agent Environment Loop](/images/posts/introduction_to_rl/agent-environment-loop.png)
 *Image: The fundamental RL loop showing agent-environment interaction*
 
-At the heart of reinforcement learning is an agent interacting with an environment. The agent can be anything making decisions (a robot, software program, game player, etc.), and the environment is everything it interacts with (the world, game, simulation, etc.). Every moment, the agent observes the current state of the environment, chooses an action, and then the environment responds by moving to a new state and giving the agent a reward (a numeric score or signal). This cycle repeats over and over. A basic formal description is:
+At the heart of reinforcement learning is an **agent** interacting with an **environment**. The agent can be anything making decisions (a robot, software program, game player, etc.), and the environment is everything it interacts with (the world, game, simulation, etc.). 
 
-At time $t$, the agent sees a state $S_t$.
+Every moment, the agent observes the current state of the environment, chooses an action, and then the environment responds by moving to a new state and giving the agent a reward (a numeric score or signal). This cycle repeats over and over. 
 
-It picks an action $A_t$.
+### 🔄 The RL Process in 4 Simple Steps:
 
-The environment transitions to a new state $S_{t+1}$ and gives a reward $R_{t+1}$ based on the action.
+> **Step 1:** At time `t`, the agent observes the current **State** `S_t`
+> 
+> **Step 2:** The agent selects an **Action** `A_t` to perform
+> 
+> **Step 3:** The environment transitions to a new **State** `S_{t+1}` and provides a **Reward** `R_{t+1}`
+> 
+> **Step 4:** The agent observes `(S_{t+1}, R_{t+1})` and decides on the next action
 
-The agent then observes $(S_{t+1}, R_{t+1})$ and decides on the next action.
+📝 *This creates a continuous learning loop where the agent improves its decisions over time!*
 
 This is often drawn as the agent-environment loop: the agent acts on the environment, and the environment "feeds back" a new state and reward. The agent's goal is to choose actions (over many steps) that maximize the total sum of rewards it gets. In other words, it's trying to figure out which behavior yields the biggest payoff in the long run. This is akin to a video-game player learning that certain moves earn more points over time, or a pet learning that certain tricks earn treats.
 
@@ -37,52 +43,96 @@ One helpful analogy is to think of yourself and your pet dog: you (the agent) ca
 
 Importantly, RL doesn't tell the agent explicitly which action is correct. Instead, the agent figures it out through experience. As one introduction notes, "RL teaches an agent to interact with an environment and learn from the consequences of its actions". In supervised learning you have example answers; in RL the agent experiments and sometimes makes "mistakes", learning indirectly by seeing which choices lead to higher rewards. This makes RL especially powerful for problems where you can try things out but can't easily write down the correct answer in advance – for example, balancing an inverted pendulum, trading stocks, or teaching an AI to play a strategy game.
 
-**Key Terms – We'll use these a lot:**
+## 📚 Essential RL Vocabulary
 
-**Agent**: The learner or decision maker (software or robot).
+> These key terms will appear throughout our journey - think of them as your RL dictionary!
 
-**Environment**: What the agent interacts with (game, maze, real world, etc.).
+| Term | Symbol | Definition |
+|------|--------|------------|
+| 🤖 **Agent** | - | The learner or decision maker (software or robot) |
+| 🌍 **Environment** | - | What the agent interacts with (game, maze, real world, etc.) |
+| 📍 **State** | `S` | A description of the current situation (robot's position, game board, etc.) |
+| 🎯 **Action** | `A` | A choice the agent can make (move left/right, speak a phrase, etc.) |
+| 🏆 **Reward** | `R` | A numerical score after taking an action (positive = good, negative = bad) |
+| 🧠 **Policy** | `π` | The agent's strategy for mapping states to actions |
+| 💎 **Value** | `V` | A measure of how "good" a state is for future rewards |
 
-**State** ($S$): A description of the current situation. For a robot, this might be its position and velocity; in a game, the positions of all pieces; in a conversation, the dialogue context.
+💡 **Think of it like this:** The **Agent** (you) interacts with the **Environment** (a video game), observes the **State** (current level), takes **Actions** (move, jump, shoot), receives **Rewards** (points, lives), and develops a **Policy** (strategy) to maximize **Value** (high score)!
 
-**Action** ($A$): A choice the agent can make at a given state (move left/right, speak a phrase, pull a joystick, etc.).
-
-**Reward** ($R$): A numerical score sent to the agent after taking an action. Can be positive (good) or negative (bad). The agent tries to maximize the sum of rewards it eventually gets.
-
-**Policy** ($\pi$): The agent's strategy, mapping states to actions. It could be a simple table or a neural network. The goal of learning is to find a (nearly) optimal policy.
-
-**Value**: A measure of how "good" a state (or state-action pair) is in terms of expected future reward. We'll explain this soon.
-
-These fit into a framework called a Markov Decision Process (MDP), which formalizes RL mathematically. An MDP is defined by a set of states ($S$), actions ($A$), transition probabilities, reward rules, and a discount factor γ (see below). But you can understand RL quite well with just the intuitive idea of states, actions, and rewards forming a loop.
+These fit into a framework called a **Markov Decision Process (MDP)**, which formalizes RL mathematically. An MDP is defined by a set of states (`S`), actions (`A`), transition probabilities, reward rules, and a discount factor `γ` (see below). But you can understand RL quite well with just the intuitive idea of states, actions, and rewards forming a loop.
 
 ## States, Actions, and Rewards
 
 ![Robot vacuum states actions](/images/posts/introduction_to_rl/robot-vacuum-states-actions.png)
 *Image: A robot vacuum demonstrating states, actions, and rewards in a real environment*
 
-Let's break down the components with simple analogies:
+### 🧩 Breaking Down the Core Components
 
-**State** ($S$): The context the agent sees. Imagine a robot vacuum in a room: the state might be its location on the floor and maybe a camera image of where dirt is. Or think of a chess game: the state is the arrangement of pieces on the board. The state should capture "everything relevant" about the situation that the agent needs to make a decision. In practice, states can be high-dimensional (an image from a camera) or simple (an integer cell number). In technical terms, we often assume the state has the Markov property: it captures all history necessary so the future depends only on the current state, not the sequence of how we got there.
+#### 📍 **State** (`S`) - "Where am I and what's happening?"
 
-**Action** ($A$): What the agent can do. In each state, the agent has a set of available actions. For example, the vacuum might move forward or turn; in a self-driving car, actions could be accelerating, braking, or steering; in a video game, actions are joystick moves. The agent's policy $\pi$ tells it which action to take in a given state. A policy can be deterministic (always take action X in state S) or stochastic (choose actions with certain probabilities). The learning process is all about finding a good policy.
+The state is like a **snapshot** of the current situation that tells the agent everything it needs to know to make a decision.
 
-**Reward** ($R$): The feedback signal. After the agent takes an action, the environment (or designer) gives a reward. It's a number – say +1 for success or -1 for failure, but it can be any real value. For instance, a robot might get +10 for reaching a goal location, -10 for crashing, and maybe 0 at other times. These rewards are how we tell the agent what's good and what's bad. Crucially, the agent's job is to maximize the sum of (discounted) rewards over time.
+**Examples:**
+- 🤖 **Robot vacuum**: Current location + dirt sensor readings + battery level
+- ♟️ **Chess game**: Positions of all pieces on the board  
+- 🚗 **Self-driving car**: Speed, location, traffic conditions, weather
 
-The agent doesn't just care about the immediate reward; it cares about future ones too. For example, you might take a slightly negative step now because it leads to a big positive reward later (like sacrificing a pawn in chess to win the game). To handle this, RL uses the idea of discounting. A discount factor γ (gamma) between 0 and 1 determines how much the agent values future rewards compared to immediate ones. A simple view: if γ=0.9, a reward received one step later counts as 90% as important as a reward now, two steps later as 81%, and so on. This captures the intuition that immediate rewards are often more certain or valuable, but it still takes future outcomes into account.
+> 💡 **Key insight**: States should have the *Markov Property* - the future depends only on the current state, not how we got there!
 
-Mathematically, in a Markov Decision Process (MDP), you'll see these defined:
+#### 🎯 **Action** (`A`) - "What can I do next?"
 
-$S$: set of all possible states.
+Actions are the **moves** available to the agent in any given state.
 
-$A$: set of all possible actions.
+**Examples:**
+- 🤖 **Robot vacuum**: {Move Forward, Turn Left, Turn Right, Start Cleaning}
+- ♟️ **Chess**: {Move Pawn, Move Knight, Castle, etc.}
+- 🚗 **Self-driving car**: {Accelerate, Brake, Turn Left, Turn Right, Change Lane}
 
-$P(s'|s,a)$: probability the environment transitions to state $s'$ when the agent takes action $a$ in state $s$.
+> 🧠 The agent's **Policy** `π` is like its "brain" - it decides which action to pick in each state!
 
-$R(s,a)$ (or sometimes $R(s,a,s')$): the immediate reward for taking action $a$ in state $s$ (possibly reaching $s'$).
+#### 🏆 **Reward** (`R`) - "How well did I do?"
 
-$\gamma$: the discount factor (0≤γ≤1).
+Rewards are the **feedback scores** that tell the agent if its actions were good or bad.
 
-The agent's goal is to choose actions so that the expected cumulative (discounted) reward is maximized. In simple terms: do things that yield high rewards now and in the long run.
+**Examples:**
+- ✅ **Positive**: +10 for reaching goal, +1 for cleaning dirt, +5 for winning a game
+- ❌ **Negative**: -10 for crashing, -1 for wasting time, -5 for losing
+- 🔄 **Neutral**: 0 for neutral actions
+
+> 🎯 **Goal**: Maximize the total reward over time (not just immediate reward!)
+
+The agent doesn't just care about the immediate reward; it cares about future ones too. For example, you might take a slightly negative step now because it leads to a big positive reward later (like sacrificing a pawn in chess to win the game). To handle this, RL uses the idea of discounting. A **discount factor** `γ` (gamma) between 0 and 1 determines how much the agent values future rewards compared to immediate ones. A simple view: if `γ=0.9`, a reward received one step later counts as 90% as important as a reward now, two steps later as 81%, and so on. This captures the intuition that immediate rewards are often more certain or valuable, but it still takes future outcomes into account.
+
+### 🔢 The Mathematical Foundation (MDP)
+
+> Don't worry - these equations just formalize what we already understand intuitively!
+
+---
+
+**📋 Formal Definition of MDP:**
+
+| Symbol | Meaning | Think of it as... |
+|--------|---------|-------------------|
+| **`S`** | Set of all possible states | All possible "situations" in our world |
+| **`A`** | Set of all possible actions | All possible "moves" the agent can make |
+| **`P(s'|s,a)`** | Transition probability | "What happens when I do action *a* in state *s*?" |
+| **`R(s,a)`** | Immediate reward function | "How many points do I get for this action?" |
+| **`γ`** | Discount factor (0≤γ≤1) | "How much do I care about future vs. now?" |
+
+---
+
+**🎯 The Ultimate Goal:**
+
+```
+Maximize: E[Σ(γ^t × R_t)] from t=0 to ∞
+```
+
+*Translation: Find the strategy that gets the highest total score over time!*
+
+**💡 Discount Factor Intuition:**
+- **`γ = 0`**: "I only care about immediate rewards" (very short-sighted)
+- **`γ = 0.9`**: "Future reward worth 90% of current reward" (balanced)  
+- **`γ = 1.0`**: "All future rewards equally important" (very long-term thinking)
 
 💡 **Fun Fact**: The word "reinforcement" comes from psychology, where rewarding an animal or person for a behavior is called reinforcement. Pavlov's famous dogs (learning to salivate to a bell after hearing it repeatedly with food) is conceptually similar to RL: behaviors are reinforced (encouraged) by rewards and discouraged by punishments. In RL, rewards play the role of reinforcing signals, guiding the agent toward better behavior.
 
@@ -91,36 +141,103 @@ The agent's goal is to choose actions so that the expected cumulative (discounte
 ![Policy and value functions](/images/posts/introduction_to_rl/policy-value-functions.png)
 *Image: Visualization of how policies map states to actions and value functions estimate future rewards*
 
-Two core concepts in RL are the policy and the value function:
+### 🧠 The Two Pillars of RL Intelligence
 
-**Policy** (π): Think of this as the agent's "brain" or strategy. A policy is simply a rule (or a probability distribution) that tells the agent what action to take in each state. For example, a policy might say "in state S, do action A with 70% probability and action B with 30%". During learning, the agent is essentially trying to improve its policy so that it makes smarter choices. A policy can be deterministic (always do the same action in a state) or stochastic (randomize among actions).
+#### 🎮 **Policy** (`π`) - "The Agent's Strategy Playbook"
 
-**Value Function** (V or Q): This is like a "gut feeling" the agent has about how good a state (or state-action) is. The state-value function $V^\pi(s)$ gives the expected total reward the agent will get if it starts in state $s$ and follows policy $\pi$ thereafter. Similarly, the action-value function (or Q-function) $Q^\pi(s,a)$ gives the expected reward if the agent starts in state $s$, takes action $a$, and then follows policy $\pi$. In plain language, these values estimate "How much reward can I expect?"
+A policy is like the agent's **decision-making rulebook** that tells it what to do in every situation.
 
-For example, if $V^\pi(s)=10$, it means under policy $\pi$ the agent expects to collect 10 reward points in total (discounted) from state $s$ onward. If $Q^\pi(s,a)=8$, taking action $a$ in $s$ and then following the policy is worth 8 points. Once the agent knows these values, it can behave better. In fact, if it finds the optimal values ($V^*$ or $Q^*$), it can choose the action that maximizes expected future reward: "take the action with the highest $Q^*(s,a)$". Reinforcement learning algorithms often focus on estimating these value functions through experience.
+---
 
-Why do we care about values? Because they provide a way for the agent to compare actions. Imagine the agent is in a state and has two choices: move left or right. If it had a table of $Q$-values, it could see "if I go left I expect +5 reward eventually, if I go right I expect +3". Then it'll go left. Learning good value estimates is at the heart of many RL methods.
+**🎯 Types of Policies:**
 
-The values satisfy a fundamental relationship called the Bellman Equation. Informally, the Bellman equation says: the value of a state equals the immediate reward plus the discounted value of the next state. In equations, for a given policy $\pi$:
+- **📖 Deterministic Policy**: "In state `S`, always do action `A`"
+  - Example: "When facing a wall, always turn right"
 
-$$V^\pi(s) = \mathbb{E}[R(s,a) + \gamma V^\pi(s')|s]$$
+- **🎲 Stochastic Policy**: "In state `S`, do action `A` with 70% probability, action `B` with 30%"  
+  - Example: "When enemy approaches, attack 80% of time, defend 20% of time"
 
-That is, $V^\pi(s)$ is the expected immediate reward $R(s,a)$ plus $\gamma$ times the expected value of the next state $s'$ (under action $a$ from $s$). A concise explanation: "the value of a state is equal to the reward received now plus the expected value of the next state". This recursive idea underlies how an agent can update its value estimates as it learns: each time it takes a step, it uses the observed reward and its current guess of future values to refine $V(s)$ or $Q(s,a)$.
+---
 
-Importantly, in optimal RL, we want the optimal value functions $V^*$ or $Q^*$. These satisfy the Bellman optimality equations, where we pick the maximum over next actions. But you don't need to dive into those details yet. What matters is that value functions let the agent reason about long-term payoff rather than just immediate reward.
+#### 💎 **Value Functions** - "The Agent's Crystal Ball"
+
+Value functions are the agent's way of **predicting the future** - "How good is this situation?"
+
+| Function | Symbol | What it answers |
+|----------|--------|-----------------|
+| **State Value** | **`V^π(s)`** | "How good is this state overall?" |
+| **Action Value (Q-Function)** | **`Q^π(s,a)`** | "How good is taking this specific action?" |
+
+**🔮 Real Example:**
+- `V^π(near goal) = 50` → "Being near the goal is worth 50 points!"
+- `Q^π(near wall, move forward) = -10` → "Moving forward near a wall loses 10 points!"
+
+For example, if `V^π(s)=10`, it means under policy `π` the agent expects to collect 10 reward points in total (discounted) from state `s` onward. If `Q^π(s,a)=8`, taking action `a` in `s` and then following the policy is worth 8 points. Once the agent knows these values, it can behave better. In fact, if it finds the optimal values (`V*` or `Q*`), it can choose the action that maximizes expected future reward: "take the action with the highest `Q*(s,a)`". Reinforcement learning algorithms often focus on estimating these value functions through experience.
+
+Why do we care about values? Because they provide a way for the agent to compare actions. Imagine the agent is in a state and has two choices: move left or right. If it had a table of `Q`-values, it could see "if I go left I expect +5 reward eventually, if I go right I expect +3". Then it'll go left. Learning good value estimates is at the heart of many RL methods.
+
+### ⚡ The Bellman Equation: The Heart of RL
+
+The **Bellman Equation** is like RL's most important recipe - it connects current and future rewards!
+
+---
+
+**🧮 The Magic Formula:**
+
+```
+V^π(s) = E[R(s,a) + γ × V^π(s') | s]
+```
+
+**🗣️ In Plain English:**
+> *"The value of where I am now = What I get immediately + (Discounted) value of where I'll be next"*
+
+**🎯 Breaking it down:**
+- **Current reward**: `R(s,a)` → Points I get right now
+- **Future value**: `γ × V^π(s')` → Expected future points (discounted)
+- **Total value**: Current + Future → Complete picture!
+
+---
+
+**💡 Why This Matters:**
+This recursive relationship is how agents **learn to look ahead** and make smart long-term decisions instead of just chasing immediate rewards!
+
+Importantly, in optimal RL, we want the optimal value functions `V*` or `Q*`. These satisfy the Bellman optimality equations, where we pick the maximum over next actions. But you don't need to dive into those details yet. What matters is that value functions let the agent reason about long-term payoff rather than just immediate reward.
 
 ## Exploration vs. Exploitation
 
 ![Exploration vs Exploitation](/images/posts/introduction_to_rl/exploration-exploitation.png)
 *Image: A robot at crossroads choosing between exploring new paths or exploiting known good paths*
 
-A classic challenge in RL (and in life!) is the exploration–exploitation dilemma. Should the agent exploit what it already knows (take the action that it currently believes is best) or explore new actions that might turn out even better? If you always pick the current best action, you might miss out on a greater reward that a lesser-known action yields. On the other hand, if you explore too much, you might waste time on bad actions.
+### 🤔 The Great RL Dilemma: Explore or Exploit?
 
-For example, imagine you're at an ice cream stand and there are three flavors: vanilla, chocolate, strawberry. You've tasted vanilla and chocolate and liked vanilla a bit more so far. Do you keep getting vanilla (exploit what you know), or try strawberry (explore) because it might be the ultimate favorite? In RL, this translates to taking a chance on actions that haven't been tried much.
+One of RL's biggest challenges is deciding: **"Should I stick with what I know works, or try something new?"**
 
-A simple strategy is ε-greedy: with probability $1-\varepsilon$ (e.g. 90%) exploit by choosing the best-known action, and with probability $\varepsilon$ (e.g. 10%) explore by picking a random action. Over time, $\varepsilon$ might shrink so the agent eventually focuses on the best actions but still occasionally tries new ones. Getting this balance right is key to effective learning. Wikipedia explains: "the focus is on finding a balance between exploration (of uncharted territory) and exploitation (of current knowledge) with the goal of maximizing the cumulative reward".
+| 🔍 **EXPLORE** | 💰 **EXPLOIT** |
+|---------------|---------------|
+| Try new, unknown actions | Use known good actions |
+| Might discover something amazing | Guaranteed decent results |
+| Risk: Could waste time on bad choices | Risk: Miss out on better options |
+| *"Let me try that new restaurant!"* | *"I'll stick with my favorite restaurant"* |
 
-🧩 **Try This**: Imagine a simple grid world where an agent can move up/down/left/right for rewards. How would you balance exploration vs. exploitation? One idea: start with high exploration ($\varepsilon$ large) and gradually reduce it as your agent becomes more confident. Try coding a tiny example in Python or on pen-and-paper to see how a greedy strategy versus an exploratory strategy might perform.
+#### 🍦 The Ice Cream Stand Analogy
+
+Imagine you're at an ice cream stand with 3 flavors:
+- ✅ **Vanilla**: You've tried it, pretty good (7/10)
+- ✅ **Chocolate**: You've tried it, okay (6/10)  
+- ❓ **Strawberry**: Never tried - could be amazing (10/10) or awful (2/10)
+
+**What do you choose?** This is the exploration-exploitation dilemma!
+
+#### 🎯 The ε-Greedy Solution
+
+A popular strategy that balances both:
+
+- **90% of the time** (`1-ε`): Pick the best known action (**exploit**)
+- **10% of the time** (`ε`): Try a random action (**explore**)
+
+> **📈 Smart Strategy**: Start with high exploration (`ε = 0.3`) when learning, then gradually reduce it (`ε = 0.1`) as you gain experience! Wikipedia explains: "the focus is on finding a balance between exploration (of uncharted territory) and exploitation (of current knowledge) with the goal of maximizing the cumulative reward".
+
+🧩 **Try This**: Imagine a simple grid world where an agent can move up/down/left/right for rewards. How would you balance exploration vs. exploitation? One idea: start with high exploration (`ε` large) and gradually reduce it as your agent becomes more confident. Try coding a tiny example in Python or on pen-and-paper to see how a greedy strategy versus an exploratory strategy might perform.
 
 ## Learning Algorithms (Conceptual Overview)
 
@@ -131,30 +248,35 @@ With these basics in place, let's outline how an agent actually learns. Many RL 
 ![Q-Learning Process](/images/posts/introduction_to_rl/q-learning-process.png)
 *Image: Visual representation of Q-Learning update process showing how Q-values are refined over time*
 
-Value-based methods center on learning value functions (usually the action-value $Q(s,a)$) and deriving a policy from them.
+Value-based methods center on learning value functions (usually the action-value `Q(s,a)`) and deriving a policy from them.
 
-**Q-Learning** is one of the most famous algorithms. It learns a table (or function) of $Q(s,a)$ values by repeatedly updating them based on experience. At each step, if the agent is in state $s$, takes action $a$, receives reward $r$, and lands in state $s'$, Q-learning updates:
+**Q-Learning** is one of the most famous algorithms. It learns a table (or function) of `Q(s,a)` values by repeatedly updating them based on experience. At each step, if the agent is in state `s`, takes action `a`, receives reward `r`, and lands in state `s'`, Q-learning updates:
 
-$$Q(s,a) \leftarrow Q(s,a) + \alpha(r + \gamma \max_{a'} Q(s',a') - Q(s,a))$$
+```
+Q(s,a) ← Q(s,a) + α(r + γ × max Q(s',a') - Q(s,a))
+                              a'
+```
 
-where $\alpha$ is a learning rate. Intuitively, Q-learning says, "take the current $Q(s,a)$ and move it partway toward the sum of the immediate reward $r$ plus the best possible future reward $\max_{a'} Q(s',a')$ (discounted)". Notice it uses the maximum over next actions $a'$, meaning it assumes the agent will behave optimally from state $s'$ onward. This makes Q-learning off-policy: it learns about the best possible strategy regardless of what actions it actually took during learning. In practice, the agent might explore randomly, but Q-learning still updates the $Q$ values as if the agent had taken the best action. Over many trials, $Q(s,a)$ values converge to the optimal values, letting the agent choose the action with the highest $Q$ in each state (that is the optimal policy).
+where `α` is a learning rate. Intuitively, Q-learning says, "take the current `Q(s,a)` and move it partway toward the sum of the immediate reward `r` plus the best possible future reward `max Q(s',a')` (discounted)". Notice it uses the maximum over next actions `a'`, meaning it assumes the agent will behave optimally from state `s'` onward. This makes Q-learning **off-policy**: it learns about the best possible strategy regardless of what actions it actually took during learning. In practice, the agent might explore randomly, but Q-learning still updates the `Q` values as if the agent had taken the best action. Over many trials, `Q(s,a)` values converge to the optimal values, letting the agent choose the action with the highest `Q` in each state (that is the optimal policy).
 
-**SARSA** (State-Action-Reward-State-Action) is similar but on-policy. Its name reflects how it updates: it considers the sequence (s, a, r, s', a'). After observing $(s,a,r,s')$ and then the agent picks next action $a'$ according to its current policy, SARSA updates:
+**SARSA** (State-Action-Reward-State-Action) is similar but **on-policy**. Its name reflects how it updates: it considers the sequence `(s, a, r, s', a')`. After observing `(s,a,r,s')` and then the agent picks next action `a'` according to its current policy, SARSA updates:
 
-$$Q(s,a) \leftarrow Q(s,a) + \alpha(r + \gamma Q(s',a') - Q(s,a))$$
+```
+Q(s,a) ← Q(s,a) + α(r + γ × Q(s',a') - Q(s,a))
+```
 
-The key difference is that SARSA uses $Q(s', a')$ – the value of the actual next action $a'$ the agent took (following its behavior) – whereas Q-learning uses $\max_{a'} Q(s', a')$ (the best possible action). As GeeksforGeeks notes, "Q-learning is an off-policy method meaning it learns the best strategy without depending on the agent's actual actions… SARSA is on-policy, updating its values based on the actions the agent actually takes". In plain terms, Q-learning chases the optimal policy regardless of exploration, while SARSA updates according to whatever policy (including randomness) the agent is following. SARSA tends to be "safer" if random exploratory moves are dangerous, because it keeps track of the actual behavior.
+The key difference is that SARSA uses `Q(s', a')` – the value of the actual next action `a'` the agent took (following its behavior) – whereas Q-learning uses `max Q(s', a')` (the best possible action). As GeeksforGeeks notes, "Q-learning is an **off-policy** method meaning it learns the best strategy without depending on the agent's actual actions… SARSA is **on-policy**, updating its values based on the actions the agent actually takes". In plain terms, Q-learning chases the optimal policy regardless of exploration, while SARSA updates according to whatever policy (including randomness) the agent is following. SARSA tends to be "safer" if random exploratory moves are dangerous, because it keeps track of the actual behavior.
 
-Both Q-learning and SARSA rely on the Bellman update concept to iteratively improve estimates of $Q(s,a)$. They need a table of values if states and actions are small and discrete. For large or continuous spaces, function approximation (like neural networks) or lookup tricks are needed.
+Both Q-learning and SARSA rely on the Bellman update concept to iteratively improve estimates of `Q(s,a)`. They need a table of values if states and actions are small and discrete. For large or continuous spaces, function approximation (like neural networks) or lookup tricks are needed.
 
 ### Policy-Based Methods: Policy Gradients
 
 ![Policy Gradient Process](/images/posts/introduction_to_rl/policy-gradient-process.png)
 *Image: Visualization of policy gradient learning process showing how policy parameters are updated*
 
-Instead of focusing on values, policy-gradient methods directly search for a good policy. Here the agent's policy is typically represented by a parameterized function (for example, a neural network with weights $\theta$ that outputs action probabilities). The objective is to maximize the expected reward by adjusting those parameters in the direction that increases the chance of high-reward actions.
+Instead of focusing on values, policy-gradient methods directly search for a good policy. Here the agent's policy is typically represented by a parameterized function (for example, a neural network with weights `θ` that outputs action probabilities). The objective is to maximize the expected reward by adjusting those parameters in the direction that increases the chance of high-reward actions.
 
-In essence, policy-gradient algorithms try to compute the gradient of expected reward with respect to the policy parameters and then perform gradient ascent. A classic simple example is the REINFORCE algorithm, where the update nudges the policy to make actions that led to high returns more likely. One benefit is that policy methods naturally handle continuous or large action spaces and stochastic policies. According to Wikipedia: "Policy gradient methods… directly maximize the expected return by differentiating a parameterized policy". Unlike value-based methods (which learn a $V$ or $Q$ function and derive a policy), policy-gradient (aka policy optimization) learns the policy directly "without consulting a value function". (Often, more advanced methods like actor-critic combine both: the "actor" is a policy gradient, and the "critic" learns a value function to reduce variance.)
+In essence, policy-gradient algorithms try to compute the gradient of expected reward with respect to the policy parameters and then perform gradient ascent. A classic simple example is the **REINFORCE** algorithm, where the update nudges the policy to make actions that led to high returns more likely. One benefit is that policy methods naturally handle continuous or large action spaces and stochastic policies. According to Wikipedia: "Policy gradient methods… directly maximize the expected return by differentiating a parameterized policy". Unlike value-based methods (which learn a `V` or `Q` function and derive a policy), policy-gradient (aka policy optimization) learns the policy directly "without consulting a value function". (Often, more advanced methods like **actor-critic** combine both: the "actor" is a policy gradient, and the "critic" learns a value function to reduce variance.)
 
 Example: Suppose your policy network outputs a probability distribution over actions. If a chosen action later results in high reward, you slightly increase the probability of that action in the future. If it yields low reward, you decrease its probability. Over many episodes, the policy gets "tuned" toward actions yielding higher returns.
 
@@ -167,13 +289,16 @@ There are many more RL approaches (e.g. Temporal-Difference (TD) learning, Monte
 ![Bellman Equation Visualization](/images/posts/introduction_to_rl/bellman-equation-visual.png)
 *Image: Visual representation of the Bellman equation showing the recursive relationship between current and future values*
 
-To understand why these algorithms work, it helps to see the Bellman equations again, at least intuitively. The idea is that the value of a state (or state-action) depends on rewards and the values of successor states. For example, the Bellman optimality equation for the state-value function $V^*(s)$ is:
+To understand why these algorithms work, it helps to see the Bellman equations again, at least intuitively. The idea is that the value of a state (or state-action) depends on rewards and the values of successor states. For example, the Bellman optimality equation for the state-value function V*(s) is:
 
-$$V^*(s) = \max_a \left[R(s,a) + \gamma \sum_{s'} P(s'|s,a) V^*(s')\right]$$
+```
+V*(s) = max [R(s,a) + γ × Σ P(s'|s,a) × V*(s')]
+        a           s'
+```
 
-In words: "the best possible expected reward from state $s$ equals the best action $a$ you can take now, receiving immediate reward $R(s,a)$ plus the discounted value of the next state." A similar form holds for $Q^*(s,a)$. We won't solve these by hand, but they justify why, for instance, Q-learning uses the $\max_{a'} Q(s',a')$ term in its update rule – it's implementing this Bellman optimality idea incrementally. The GeeksforGeeks RL guide puts it simply: "the Bellman Equation says the value of a state is equal to the reward received now plus the expected value of the next state".
+In words: "the best possible expected reward from state `s` equals the best action `a` you can take now, receiving immediate reward `R(s,a)` plus the discounted value of the next state." A similar form holds for `Q*(s,a)`. We won't solve these by hand, but they justify why, for instance, Q-learning uses the `max Q(s',a')` term in its update rule – it's implementing this Bellman optimality idea incrementally. The GeeksforGeeks RL guide puts it simply: "the Bellman Equation says the value of a state is equal to the reward received now plus the expected value of the next state".
 
-The discount factor γ figures in here to weigh immediate versus future reward. A γ close to 0 means the agent is short-sighted (mostly cares about immediate reward), while γ near 1 means it values future rewards almost as much as immediate ones. You can picture a timeline of rewards: receiving 10 points now and 0 later versus receiving 0 now and 10 later. With discounting, 10 later is worth less (10×γ) in today's terms. Setting γ balances whether the agent should focus on quick gains or on long-term strategy. Many problems use γ around 0.9 or 0.99 to give significance to future rewards while ensuring the math converges.
+The discount factor `γ` figures in here to weigh immediate versus future reward. A `γ` close to 0 means the agent is short-sighted (mostly cares about immediate reward), while `γ` near 1 means it values future rewards almost as much as immediate ones. You can picture a timeline of rewards: receiving 10 points now and 0 later versus receiving 0 now and 10 later. With discounting, 10 later is worth less (`10×γ`) in today's terms. Setting `γ` balances whether the agent should focus on quick gains or on long-term strategy. Many problems use `γ` around 0.9 or 0.99 to give significance to future rewards while ensuring the math converges.
 
 ## Exploration Example: Multi-Armed Bandits
 
@@ -184,7 +309,7 @@ A useful sub-problem in RL is the multi-armed bandit scenario. Imagine a row of 
 
 The analogy to reinforcement learning is straightforward: each slot machine is an action, and pulling it yields a stochastic reward. The goal is to identify the "best arm" quickly. As a real-world analogy, consider you're trying to find your dog's favorite treat. You have 7 new brands. You give your dog a different one each day and see how it reacts. Maybe Brand A got a huge tail wag on one day, but the dog might have been excited for another reason. To be sure, you need to try each brand multiple times to estimate its average appeal. Then you want to focus on the top few favorites and avoid the worst ones (regret minimization).
 
-This is exactly what bandit algorithms do. A naive approach ("try each brand n times and pick the best average") works but is wasteful. Smarter algorithms (like Upper Confidence Bound, Thompson Sampling, ε-greedy) try to reduce unnecessary "unpleasant experiments" by balancing exploration with focusing on promising arms. In RL jargon, bandits are the single-step (no state changes) version of RL, highlighting the exploration problem. Understanding bandits can help you build intuition before tackling full multi-step RL.
+This is exactly what bandit algorithms do. A naive approach ("try each brand n times and pick the best average") works but is wasteful. Smarter algorithms (like **Upper Confidence Bound**, **Thompson Sampling**, **ε-greedy**) try to reduce unnecessary "unpleasant experiments" by balancing exploration with focusing on promising arms. In RL jargon, bandits are the single-step (no state changes) version of RL, highlighting the exploration problem. Understanding bandits can help you build intuition before tackling full multi-step RL.
 
 💡 **Fun Fact**: The "multi-armed bandit" name comes from imagining a gambler in a casino with many slot machines ("one-armed bandits"). You want to figure out which arm to pull to win the most, balancing trying new machines (exploration) and sticking with high-reward machines (exploitation).
 

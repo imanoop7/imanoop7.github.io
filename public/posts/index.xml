@@ -6,8 +6,15 @@
     <description>Recent content in Posts on Anoop Maurya</description>
     <generator>Hugo -- 0.150.0</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 27 Sep 2025 14:45:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 20 Oct 2025 10:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Introduction to Reinforcement Learning for Absolute Beginners</title>
+      <link>http://localhost:1313/posts/introduction-to-reinforcement-learning/</link>
+      <pubDate>Mon, 20 Oct 2025 10:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/introduction-to-reinforcement-learning/</guid>
+      <description>A beginner-friendly guide to understanding Reinforcement Learning - how machines learn from experience, just like humans do when learning to ride a bike or play games.</description>
+    </item>
     <item>
       <title>LLMs as Judges: Using Large Language Models to Evaluate AI-Generated Text</title>
       <link>http://localhost:1313/posts/llm_automated_evaluators/</link>
