@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Example on Anoop Maurya</title>
+    <link>http://localhost:1313/tags/example/</link>
+    <description>Recent content in Example on Anoop Maurya</description>
+    <generator>Hugo -- 0.150.0</generator>
+    <language>en</language>
+    <lastBuildDate>Mon, 01 Jan 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/example/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Sample Chapter Title</title>
+      <link>http://localhost:1313/e-books/sample-book/chapter-1-introduction/</link>
+      <pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/e-books/sample-book/chapter-1-introduction/</guid>
+      <description>This is a sample chapter to demonstrate the chapter structure and PDF integration.</description>
+    </item>
+  </channel>
+</rss>

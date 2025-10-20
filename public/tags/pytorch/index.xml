@@ -10,9 +10,9 @@
     <atom:link href="http://localhost:1313/tags/pytorch/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Transformers from Scratch: Implementing Attention Is All You Need</title>
-      <link>http://localhost:1313/posts/attention_transformer_blog/</link>
+      <link>http://localhost:1313/archived-posts/attention_transformer_blog/</link>
       <pubDate>Mon, 15 Sep 2025 12:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/posts/attention_transformer_blog/</guid>
+      <guid>http://localhost:1313/archived-posts/attention_transformer_blog/</guid>
       <description>Beginner-to-intermediate guide to the Transformer with PyTorch code: attention, multi-head attention, positional encoding, and a minimal encoder.</description>
     </item>
   </channel>

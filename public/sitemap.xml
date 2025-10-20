@@ -2,6 +2,9 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>http://localhost:1313/tags/agent-evaluation/</loc>
+    <lastmod>2025-09-27T14:45:00+00:00</lastmod>
+  </url><url>
     <loc>http://localhost:1313/tags/ai-judges/</loc>
     <lastmod>2025-09-27T14:45:00+00:00</lastmod>
   </url><url>
@@ -17,7 +20,10 @@
     <loc>http://localhost:1313/tags/evaluation-metrics/</loc>
     <lastmod>2025-09-27T14:45:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/llama/</loc>
+    <loc>http://localhost:1313/tags/human-assessment/</loc>
+    <lastmod>2025-09-27T14:45:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/llm/</loc>
     <lastmod>2025-09-27T14:45:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/llm-evaluation/</loc>
@@ -29,16 +35,7 @@
     <loc>http://localhost:1313/tags/machine-learning/</loc>
     <lastmod>2025-09-27T14:45:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/nlp/</loc>
-    <lastmod>2025-09-27T14:45:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/ollama/</loc>
-    <lastmod>2025-09-27T14:45:00+00:00</lastmod>
-  </url><url>
     <loc>http://localhost:1313/posts/</loc>
-    <lastmod>2025-09-27T14:45:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tags/python/</loc>
     <lastmod>2025-09-27T14:45:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/</loc>
@@ -62,11 +59,17 @@
     <loc>http://localhost:1313/tags/langraph/</loc>
     <lastmod>2025-09-21T12:34:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tags/llm/</loc>
+    <loc>http://localhost:1313/tags/python/</loc>
     <lastmod>2025-09-21T12:34:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/tool-integration/</loc>
     <lastmod>2025-09-21T12:34:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/archived-posts/</loc>
+    <lastmod>2025-09-15T12:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tags/nlp/</loc>
+    <lastmod>2025-09-15T12:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/pytorch/</loc>
     <lastmod>2025-09-15T12:00:00+00:00</lastmod>
@@ -74,12 +77,22 @@
     <loc>http://localhost:1313/tags/transformers/</loc>
     <lastmod>2025-09-15T12:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/posts/attention_transformer_blog/</loc>
+    <loc>http://localhost:1313/archived-posts/attention_transformer_blog/</loc>
     <lastmod>2025-09-15T12:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/archives/</loc>
+    <loc>http://localhost:1313/tags/artificial-intelligence/</loc>
+    <lastmod>2024-10-20T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/archived-posts/</loc>
+    <loc>http://localhost:1313/tags/automation/</loc>
+    <lastmod>2024-10-20T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/e-books/</loc>
+    <lastmod>2024-10-20T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/e-books/the-agent-playbook/</loc>
+    <lastmod>2024-10-20T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/archives/</loc>
   </url><url>
     <loc>http://localhost:1313/categories/</loc>
   </url><url>

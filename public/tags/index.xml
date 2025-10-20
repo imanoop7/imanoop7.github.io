@@ -9,6 +9,13 @@
     <lastBuildDate>Sat, 27 Sep 2025 14:45:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Agent-Evaluation</title>
+      <link>http://localhost:1313/tags/agent-evaluation/</link>
+      <pubDate>Sat, 27 Sep 2025 14:45:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/agent-evaluation/</guid>
+      <description></description>
+    </item>
+    <item>
       <title>Ai-Judges</title>
       <link>http://localhost:1313/tags/ai-judges/</link>
       <pubDate>Sat, 27 Sep 2025 14:45:00 +0000</pubDate>
@@ -37,10 +44,17 @@
       <description></description>
     </item>
     <item>
-      <title>Llama</title>
-      <link>http://localhost:1313/tags/llama/</link>
+      <title>Human-Assessment</title>
+      <link>http://localhost:1313/tags/human-assessment/</link>
       <pubDate>Sat, 27 Sep 2025 14:45:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/llama/</guid>
+      <guid>http://localhost:1313/tags/human-assessment/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Llm</title>
+      <link>http://localhost:1313/tags/llm/</link>
+      <pubDate>Sat, 27 Sep 2025 14:45:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/llm/</guid>
       <description></description>
     </item>
     <item>
@@ -55,27 +69,6 @@
       <link>http://localhost:1313/tags/machine-learning/</link>
       <pubDate>Sat, 27 Sep 2025 14:45:00 +0000</pubDate>
       <guid>http://localhost:1313/tags/machine-learning/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Nlp</title>
-      <link>http://localhost:1313/tags/nlp/</link>
-      <pubDate>Sat, 27 Sep 2025 14:45:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/nlp/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Ollama</title>
-      <link>http://localhost:1313/tags/ollama/</link>
-      <pubDate>Sat, 27 Sep 2025 14:45:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/ollama/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Python</title>
-      <link>http://localhost:1313/tags/python/</link>
-      <pubDate>Sat, 27 Sep 2025 14:45:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/python/</guid>
       <description></description>
     </item>
     <item>
@@ -114,10 +107,10 @@
       <description></description>
     </item>
     <item>
-      <title>Llm</title>
-      <link>http://localhost:1313/tags/llm/</link>
+      <title>Python</title>
+      <link>http://localhost:1313/tags/python/</link>
       <pubDate>Sun, 21 Sep 2025 12:34:00 +0000</pubDate>
-      <guid>http://localhost:1313/tags/llm/</guid>
+      <guid>http://localhost:1313/tags/python/</guid>
       <description></description>
     </item>
     <item>
@@ -125,6 +118,13 @@
       <link>http://localhost:1313/tags/tool-integration/</link>
       <pubDate>Sun, 21 Sep 2025 12:34:00 +0000</pubDate>
       <guid>http://localhost:1313/tags/tool-integration/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Nlp</title>
+      <link>http://localhost:1313/tags/nlp/</link>
+      <pubDate>Mon, 15 Sep 2025 12:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/nlp/</guid>
       <description></description>
     </item>
     <item>
@@ -139,6 +139,20 @@
       <link>http://localhost:1313/tags/transformers/</link>
       <pubDate>Mon, 15 Sep 2025 12:00:00 +0000</pubDate>
       <guid>http://localhost:1313/tags/transformers/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Artificial-Intelligence</title>
+      <link>http://localhost:1313/tags/artificial-intelligence/</link>
+      <pubDate>Sun, 20 Oct 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/artificial-intelligence/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Automation</title>
+      <link>http://localhost:1313/tags/automation/</link>
+      <pubDate>Sun, 20 Oct 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/automation/</guid>
       <description></description>
     </item>
   </channel>

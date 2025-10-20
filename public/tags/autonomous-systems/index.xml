@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Autonomous-Systems on Anoop Maurya</title>
+    <link>http://localhost:1313/tags/autonomous-systems/</link>
+    <description>Recent content in Autonomous-Systems on Anoop Maurya</description>
+    <generator>Hugo -- 0.150.0</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 20 Oct 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/autonomous-systems/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Introduction to Agents</title>
+      <link>http://localhost:1313/e-books/the-agent-playbook---recipes-for-autonomous-reliable-ai/chapter-01-introduction-to-agents/</link>
+      <pubDate>Sun, 20 Oct 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/e-books/the-agent-playbook---recipes-for-autonomous-reliable-ai/chapter-01-introduction-to-agents/</guid>
+      <description>Foundational concepts of AI agents, their architecture, and core principles for building autonomous systems.</description>
+    </item>
+  </channel>
+</rss>

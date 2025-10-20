@@ -1,0 +1,245 @@
+{{- define "main" }}
+
+<header class="page-header">
+  <div class="book-nav">
+    <a href="/e-books/">&larr; Back to E-Books</a>
+  </div>
+  <h1>{{ .Title }}</h1>
+  {{- if .Params.description }}
+  <div class="post-description">{{ .Params.description }}</div>
+  {{- end }}
+</header>
+
+<div id="content">
+  {{- if .Content }}
+  <div class="post-content">{{ .Content }}</div>
+  {{- end }}
+
+  <div class="chapters-section">
+    <div class="section-header">
+      <h2>📖 Available Chapters</h2>
+      <p>Download PDF chapters to read offline</p>
+    </div>
+    
+    <div class="chapters-grid">
+      <div class="chapter-card">
+        <div class="chapter-icon">📄</div>
+        <div class="chapter-info">
+          <h3>Chapter 1: Introduction to Agents</h3>
+          <p>Foundational concepts of AI agents, their architecture, and core principles for building autonomous systems.</p>
+          <div class="chapter-meta">
+            <span class="chapter-pages">25 pages</span>
+            <span class="file-size">~2.5 MB</span>
+          </div>
+        </div>
+        <a href="/downloads/chapter-01-introduction-to-agents-v2_playwright_styled.pdf" class="download-btn" target="_blank">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+            <polyline points="7,10 12,15 17,10"/>
+            <line x1="12" y1="15" x2="12" y2="3"/>
+          </svg>
+          Download PDF
+        </a>
+      </div>
+
+      <div class="coming-soon-card">
+        <div class="chapter-icon">⏳</div>
+        <div class="chapter-info">
+          <h3>More Chapters Coming Soon</h3>
+          <p>Additional chapters covering advanced agent patterns, implementation strategies, and real-world case studies.</p>
+          <div class="coming-soon-badge">
+            <span>🚀 In Progress</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+.book-nav {
+  margin-bottom: 1rem;
+}
+
+.book-nav a {
+  color: var(--primary);
+  text-decoration: none;
+  font-size: 0.9rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0;
+  transition: opacity 0.3s ease;
+}
+
+.book-nav a:hover {
+  opacity: 0.7;
+}
+
+.chapters-section {
+  margin-top: 3rem;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.section-header h2 {
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+  font-size: 1.75rem;
+}
+
+.section-header p {
+  color: var(--secondary);
+  font-size: 1rem;
+}
+
+.chapters-grid {
+  display: grid;
+  gap: 1.5rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.chapter-card, .coming-soon-card {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  background: var(--entry);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.chapter-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  border-color: var(--primary);
+}
+
+.coming-soon-card {
+  opacity: 0.7;
+  border-style: dashed;
+}
+
+.chapter-icon {
+  font-size: 2rem;
+  flex-shrink: 0;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--code-bg);
+  border-radius: 12px;
+}
+
+.chapter-info {
+  flex: 1;
+}
+
+.chapter-info h3 {
+  margin: 0 0 0.5rem 0;
+  color: var(--primary);
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.chapter-info p {
+  margin: 0 0 0.75rem 0;
+  color: var(--secondary);
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.chapter-meta {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.8rem;
+  color: var(--secondary);
+}
+
+.chapter-pages, .file-size {
+  background: var(--code-bg);
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+}
+
+.coming-soon-badge {
+  display: inline-block;
+}
+
+.coming-soon-badge span {
+  background: linear-gradient(135deg, #ffd700, #ffaa00);
+  color: #333;
+  padding: 0.3rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.download-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--primary);
+  color: var(--theme);
+  padding: 0.75rem 1.25rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.download-btn:hover {
+  background: #667eea;
+  transform: scale(1.05);
+}
+
+.download-btn svg {
+  transition: transform 0.3s ease;
+}
+
+.download-btn:hover svg {
+  transform: translateY(2px);
+}
+
+@media (max-width: 768px) {
+  .chapter-card, .coming-soon-card {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+  
+  .chapter-info {
+    text-align: center;
+  }
+  
+  .chapter-meta {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .chapters-grid {
+    gap: 1rem;
+  }
+  
+  .chapter-card, .coming-soon-card {
+    padding: 1rem;
+  }
+  
+  .chapter-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
+  }
+}
+</style>
+
+{{- end }}

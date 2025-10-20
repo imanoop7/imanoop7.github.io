@@ -29,6 +29,7 @@ params:
   DateFormat: "January 2, 2006"
   defaultTheme: auto
   disableThemeToggle: false
+  mainSections: ["posts"]
 
 
   # Enable built-in PaperMod search
@@ -89,6 +90,10 @@ menu:
       name: Archives
       url: /archives/
       weight: 10
+    - identifier: e-books
+      name: E-Books
+      url: /e-books/
+      weight: 20
     - identifier: tags
       name: Tags
       url: /tags/
